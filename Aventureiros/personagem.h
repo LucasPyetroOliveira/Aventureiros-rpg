@@ -74,5 +74,12 @@ int busca_personagem(const CadastroPersonagem *cadastro, int ID, Personagem *per
 int alterar_personagem(CadastroPersonagem *cadastro,int ID,Personagem personagem);
 int excluir_personagem(CadastroPersonagem *cadastro,int ID);
 void listar_personagens(const CadastroPersonagem *cadastro);
+int equipar_item(Personagem *personagem, int ID, PosicaoEquipamento posicao);
+int desequipar_item(Personagem *personagem, PosicaoEquipamento posicao);
+int calcular_ataque_total(const Personagem *personagem);
+int calcular_defesa_total(const Personagem *personagem);
+int calcular_vida_total(const Personagem *personagem);
+int calcular_iniciativa_total(const Personagem *personagem);
+int calcular_poder_total(const Personagem *personagem);
 
 #endif /* Esta fechando a caixa lá do começo. */

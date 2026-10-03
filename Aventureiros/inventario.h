@@ -16,4 +16,11 @@ typedef struct{
 
 }Inventario ;
 
+void inicializar_inventario(Inventario *inventario);
+int calcular_ocupacao(const Inventario *inventario);
+int adicionar_item(Inventario *inventario, Item item);
+int buscar_item(const Inventario *inventario, int ID, Item *item_encontrado);
+int remover_item(Inventario *inventario, int ID);
+void listar_itens(const Inventario *inventario);
+
 #endif /* Ta fechando a caixa.*/
