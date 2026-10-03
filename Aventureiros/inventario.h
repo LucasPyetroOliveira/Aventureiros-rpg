@@ -16,4 +16,4 @@ typedef struct{
 
 }Inventario ;
 
-#endif /* Ta fechando a caixa.79t878r*/
+#endif /* Ta fechando a caixa.*/
