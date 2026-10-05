@@ -46,31 +46,43 @@ int main()
             printf("Nome: ");
             scanf(" %49[^\n]", personagem.Nome);
 
-            printf("Raca (0-5): ");
+            printf("Raca:\n");
+            printf("0 - Elfo\n");
+            printf("1 - Humano\n");
+            printf("2 - Anao\n");
+            printf("3 - Halfling\n");
+            printf("4 - Draconatos\n");
+            printf("5 - Goblins\n");
             scanf("%d", (int *)&personagem.raca);
 
-            printf("Classe (0-5): ");
+            printf("Classe: \n");
+            printf("0 - Mago\n");
+            printf("1 - Guerreiro\n");
+            printf("2 - Ladino\n");
+            printf("3 - Clerigo\n");
+            printf("4 - Bardo\n");
+            printf("5 - Barbaro\n");
             scanf("%d", (int *)&personagem.classe);
 
-            printf("Nivel: ");
+            printf("Nivel (1 - 20): ");
             scanf("%d", &personagem.Nivel);
 
-            printf("Limite de vida: ");
+            printf("Limite de vida (1-999): ");
             scanf("%d", &personagem.Limite_vida);
 
             printf("Vida atual: ");
             scanf("%d", &personagem.Atual_vida);
 
-            printf("Ataque: ");
+            printf("Ataque (1-30):");
             scanf("%d", &personagem.Ataque);
 
-            printf("Defesa: ");
+            printf("Defesa (1-30):");
             scanf("%d", &personagem.Defesa);
 
-            printf("Iniciativa: ");
+            printf("Iniciativa (-5 ate 30):");
             scanf("%d", &personagem.Iniciativa);
 
-            printf("Poder: ");
+            printf("Poder (1-100):");
             scanf("%d", &personagem.Poder);
 
             if (cadastro_personagem(&cadastro, personagem))
@@ -146,30 +158,42 @@ int main()
             scanf(" %49[^\n]", personagem.Nome);
 
             printf("Nova raca (0-5): ");
+            printf("0 - Elfo\n");
+            printf("1 - Humano\n");
+            printf("2 - Anao\n");
+            printf("3 - Halfling\n");
+            printf("4 - Draconatos\n");
+            printf("5 - Goblins\n");
             scanf("%d", (int *)&personagem.raca);
 
             printf("Nova classe (0-5): ");
+            printf("0 - Mago\n");
+            printf("1 - Guerreiro\n");
+            printf("2 - Ladino\n");
+            printf("3 - Clerigo\n");
+            printf("4 - Bardo\n");
+            printf("5 - Barbaro\n");
             scanf("%d", (int *)&personagem.classe);
 
-            printf("Novo nivel: ");
+            printf("Novo nivel (1-20): ");
             scanf("%d", &personagem.Nivel);
 
-            printf("Novo limite de vida: ");
+            printf("Novo limite de vida (1-999): ");
             scanf("%d", &personagem.Limite_vida);
 
             printf("Nova vida atual: ");
             scanf("%d", &personagem.Atual_vida);
 
-            printf("Novo ataque: ");
+            printf("Novo ataque (1-30): ");
             scanf("%d", &personagem.Ataque);
 
-            printf("Nova defesa: ");
+            printf("Nova Defesa (1-30):");
             scanf("%d", &personagem.Defesa);
 
-            printf("Nova iniciativa: ");
+            printf("Nova Iniciativa (-5 ate 30):");
             scanf("%d", &personagem.Iniciativa);
 
-            printf("Novo poder: ");
+            printf("Novo Poder (1-100):");
             scanf("%d", &personagem.Poder);
 
             if (alterar_personagem(&cadastro, ID, personagem))
@@ -241,10 +265,30 @@ int main()
             printf("Nome do item: ");
             scanf(" %49[^\n]", item.Nome);
 
-            printf("Tipo do item (0-9): ");
+            printf("Tipos do Item (0-9):\n");
+            printf("0 - Elmo\n");
+            printf("1 - Peitoral\n");
+            printf("2 - Manoplas\n");
+            printf("3 - Calca\n");
+            printf("4 - Botas\n");
+            printf("5 - Anel\n");
+            printf("6 - Colar\n");
+            printf("7 - Cinto\n");
+            printf("8 - Arma de uma mao\n");
+            printf("9 - Arma de duas maos\n");
             scanf("%d", (int *)&item.tipo);
 
-            printf("Espacos ocupados: ");
+            printf("Slots de equipamento (0-9):\n");
+            printf("0 - Elmo\n");
+            printf("1 - Peitoral\n");
+            printf("2 - Manoplas\n");
+            printf("3 - Calca\n");
+            printf("4 - Botas\n");
+            printf("5 - Anel\n");
+            printf("6 - Colar\n");
+            printf("7 - Cinto\n");
+            printf("8 - Mao direita\n");
+            printf("9 - Mao esquerda\n");
             scanf("%d", &item.espacos);
 
             printf("Bonus de ataque: ");
