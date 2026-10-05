@@ -279,16 +279,6 @@ int main()
             scanf("%d", (int *)&item.tipo);
 
             printf("Slots de equipamento (0-9):\n");
-            printf("0 - Elmo\n");
-            printf("1 - Peitoral\n");
-            printf("2 - Manoplas\n");
-            printf("3 - Calca\n");
-            printf("4 - Botas\n");
-            printf("5 - Anel\n");
-            printf("6 - Colar\n");
-            printf("7 - Cinto\n");
-            printf("8 - Mao direita\n");
-            printf("9 - Mao esquerda\n");
             scanf("%d", &item.espacos);
 
             printf("Bonus de ataque: ");
