@@ -32,4 +32,6 @@ typedef struct{ /* Aqui está falando C, um ITEM possui todas essas informaçõe
     int poder;
 }Item ;
 
+int validar_item(Item item);
+
 #endif /* Esta fechando a caixa lá do começo. */

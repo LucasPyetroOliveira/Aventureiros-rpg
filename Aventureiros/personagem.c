@@ -181,3 +181,153 @@ void listar_personagens(const CadastroPersonagem *cadastro){
             cadastro->personagem[i].Poder);
     }
 }
+
+int equipar_item(Personagem *personagem, int ID, PosicaoEquipamento posicao){
+
+    Item item;
+
+    if (posicao < SLOT_ELMO || posicao > SLOT_MAO_ESQUERDA){
+        return 0;
+    }
+
+    if (buscar_item(&personagem->inventario, ID, &item) == 0){
+        return 0;
+    }
+
+    if (tipo_compativel(item, posicao) == 0){
+        return 0;
+    }
+
+    if (personagem->equipamentos.ocupado[posicao] == 1){
+        return 0;
+    }
+
+    if (item.tipo == ARMA_DUAS_MAOS){
+
+        if (personagem->equipamentos.ocupado[SLOT_MAO_DIREITA] == 1 ||
+            personagem->equipamentos.ocupado[SLOT_MAO_ESQUERDA] == 1){
+            return 0;
+        }
+
+    }
+
+    if (item.tipo == ARMA_DUAS_MAOS){
+
+        personagem->equipamentos.itens[SLOT_MAO_DIREITA] = item;
+        personagem->equipamentos.itens[SLOT_MAO_ESQUERDA] = item;
+
+        personagem->equipamentos.ocupado[SLOT_MAO_DIREITA] = 1;
+        personagem->equipamentos.ocupado[SLOT_MAO_ESQUERDA] = 1;
+
+    } else {
+
+        personagem->equipamentos.itens[posicao] = item;
+        personagem->equipamentos.ocupado[posicao] = 1;
+
+    }
+
+    remover_item(&personagem->inventario, ID);
+
+    return 1;
+}
+
+int desequipar_item(Personagem *personagem, PosicaoEquipamento posicao){
+
+    if (personagem->equipamentos.ocupado[posicao] == 0){
+        return 0;
+    }
+
+    Item item = personagem->equipamentos.itens[posicao];
+
+    if (adicionar_item(&personagem->inventario, item) == 0){
+        return 0;
+    }
+
+    if (item.tipo == ARMA_DUAS_MAOS){
+
+        personagem->equipamentos.ocupado[SLOT_MAO_DIREITA] = 0;
+        personagem->equipamentos.ocupado[SLOT_MAO_ESQUERDA] = 0;
+
+    } else {
+
+        personagem->equipamentos.ocupado[posicao] = 0;
+
+    }
+
+    return 1;
+}
+
+int calcular_ataque_total(const Personagem *personagem){
+
+    int total = personagem->Ataque;
+
+    for(int i = 0; i < 10; i++){
+
+        if(personagem->equipamentos.ocupado[i] == 1){
+            total += personagem->equipamentos.itens[i].bonus_ataque;
+        }
+
+    }
+
+    return total;
+}
+
+int calcular_defesa_total(const Personagem *personagem){
+
+    int total = personagem->Defesa;
+
+    for(int i = 0; i < 10; i++){
+
+        if(personagem->equipamentos.ocupado[i] == 1){
+            total += personagem->equipamentos.itens[i].bonus_defesa;
+        }
+
+    }
+
+    return total;
+}
+
+int calcular_vida_total(const Personagem *personagem){
+
+    int total = personagem->Limite_vida;
+
+    for(int i = 0; i < 10; i++){
+
+        if(personagem->equipamentos.ocupado[i] == 1){
+            total += personagem->equipamentos.itens[i].bonus_vida;
+        }
+
+    }
+
+    return total;
+}
+
+int calcular_iniciativa_total(const Personagem *personagem){
+
+    int total = personagem->Iniciativa;
+
+    for(int i = 0; i < 10; i++){
+
+        if(personagem->equipamentos.ocupado[i] == 1){
+            total += personagem->equipamentos.itens[i].bonus_iniciativa;
+        }
+
+    }
+
+    return total;
+}
+
+int calcular_poder_total(const Personagem *personagem){
+
+    int total = personagem->Poder;
+
+    for(int i = 0; i < 10; i++){
+
+        if(personagem->equipamentos.ocupado[i] == 1){
+            total += personagem->equipamentos.itens[i].poder;
+        }
+
+    }
+
+    return total;
+}
